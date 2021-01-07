@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>BINARY SEARCH</title>
+<script type="text/javascript">
+
+    function ilkFonksiyon(){
+        var elemanSayisi=parseInt(prompt("Dizinin Büyüklügünü Giriniz :"));
+        var a= Array.from({length:elemanSayisi},() => Math.floor(Math.random()*400));
+        document.writeln("Sıralanmamış Dizimiz : <br>" +a);
+        var siralanmisDizi = quickSort(a);
+        document.writeln("Sıralanmış Dizi <br>" + siralanmisDizi);
+        var k=parseInt(prompt("Aranacak Elemani Giriniz : "));
+        var arama=binarySearch(siralanmisDizi,k);
+        document.writeln( "Sayımız =>" + k + " Bulundugu index => "+ arama);
+        document.writeln("<a href=./index.html > <br><br> ANA MENÜ</a>")
+    }
+
+    function quickSort (items) {
+        var length = items.length
+      
+        if (length <= 1) {
+          return items
+        }
+        var PIVOT = items[0]
+        var GREATER = []
+        var LESSER = []
+      
+        for (var i = 1; i < length; i++) {
+          if (items[i] > PIVOT) {
+            GREATER.push(items[i])
+          } else {
+            LESSER.push(items[i])
+          }
+        }
+      
+        var sorted = quickSort(LESSER)
+        sorted.push(PIVOT)
+        sorted = sorted.concat(quickSort(GREATER))
+      
+        return sorted
+      }
+
+
+
+
+
+function binarySearch(sortedArray, key){
+    let start = 0;
+    let end = sortedArray.length - 1;
+
+    while (start <= end) {
+        let middle = Math.floor((start + end) / 2);
+
+        if (sortedArray[middle] === key) {
+            // found the key
+            return middle;
+        } else if (sortedArray[middle] < key) {
+            // continue searching to the right
+            start = middle + 1;
+        } else {
+            // search searching to the left
+            end = middle - 1;
+        }
+    }
+	// key wasn't found
+    return -1;
+}
+
+</script>
+</head>
+
+
+<body onLoad="ilkFonksiyon()">
+
+
+</body>
+</html>

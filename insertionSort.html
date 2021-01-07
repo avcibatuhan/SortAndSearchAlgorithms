@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Insertion Sort</title>
+<script type="text/javascript">
+function ilkFonksiyon(){
+    var elemanSayisi=parseInt(prompt("Dizinin Büyüklügünü Giriniz :"));
+    var a= Array.from({length:elemanSayisi},() => Math.floor(Math.random()*400));
+    document.writeln("Sıralanmamış Dizimiz : <br>" +a);
+    var siralanmisDizi = insertionSort(a);
+    document.writeln("Sıralanmış Dizi <br>" + siralanmisDizi);
+    document.writeln("<a href=./index.html > <br><br> ANA MENÜ</a>")
+}
+
+let insertionSort = (inputArr) => {
+  let length = inputArr.length;
+  for (let i = 1; i < length; i++) {
+      let key = inputArr[i];
+      let j = i - 1;
+      while (j >= 0 && inputArr[j] > key) {
+          inputArr[j + 1] = inputArr[j];
+          j = j - 1;
+      }
+      inputArr[j + 1] = key;
+  }
+  return inputArr;
+};
+
+
+</script>
+</head>
+
+
+<body  onLoad="ilkFonksiyon()">
+
+
+</body>
+</html>

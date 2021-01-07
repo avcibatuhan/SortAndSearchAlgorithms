@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>LINEAR SEARCH</title>
+<script type="text/javascript">
+    function linear()
+{
+    var elemanSayisi=parseInt(prompt("Dizinin Büyüklügünü Giriniz :"));
+    var a= Array.from({length:elemanSayisi},() => Math.floor(Math.random()*400));
+    var t=0;
+    var k=parseInt(prompt("Aranacak Elemani Giriniz : "));
+    for(var i=0; i<a.length; i++)
+    {
+        if(k==a[i])
+        {
+            t=1;
+            iterationCounter=i;
+            break;
+        }
+    }
+    if(t==1)
+    {
+        document.writeln("Dizimiz :" +a);
+        document.writeln( "Sayımız =>" +a[i]+ " Bulundugu index => "+i);
+        document.writeln("<br> İterasyon Sayısı : "+ iterationCounter);
+        document.writeln("<a href=./index.html > <br><br> ANA MENÜ</a>")
+       
+    }
+    else
+    {
+        document.writeln("Dizimiz :" +a);
+        document.writeln("Eleman Bulunamadı !");
+        document.writeln("<a href=./index.html > <br><br> ANA MENÜ</a>")
+    }
+}
+</script>
+</head>
+<body  onLoad="linear()"></body>
+</html>

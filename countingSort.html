@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Counting Sort</title>
+<script type="text/javascript">
+function ilkFonksiyon(){
+    var elemanSayisi=parseInt(prompt("Dizinin Büyüklügünü Giriniz :"));
+    var a= Array.from({length:elemanSayisi},() => Math.floor(Math.random()*400));
+    document.writeln("Sıralanmamış Dizimiz : <br>" +a);
+    // min ve max değerlerini buradan değiştiriyoruz
+    var siralanmisDizi = countingSort(a,0,400);
+    document.writeln("Sıralanmış Dizi <br>" + siralanmisDizi);
+    document.writeln("<a href=./index.html > <br><br> ANA MENÜ</a>")
+}
+
+function countingSort (arr, min, max) {
+  let i
+  let z = 0
+  const count = []
+
+  for (i = min; i <= max; i++) {
+    count[i] = 0
+  }
+
+  for (i = 0; i < arr.length; i++) {
+    count[arr[i]]++
+  }
+
+  for (i = min; i <= max; i++) {
+    while (count[i]-- > 0) {
+      arr[z++] = i
+    }
+  }
+
+  return arr
+}
+
+</script>
+</head>
+
+
+<body  onLoad="ilkFonksiyon()">
+
+
+</body>
+</html>
